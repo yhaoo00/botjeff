@@ -1,0 +1,212 @@
+{"intents": [
+  {"tag": "fallback",
+    "patterns": [""],
+    "responses": ["One more time?", "What was that?", "I missed what you said. Say it again?", "I don't understand, can you repeat?"],
+    "context_set": ""
+  },
+  {"tag": "greeting",
+    "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "What's up", "halo", "hey"],
+    "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+    "context_set": ""
+  },
+  {"tag": "goodbye",
+    "patterns": ["Bye", "See you later", "Goodbye", "cya", "byebye", "bb"],
+    "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."],
+    "context_set": ""
+  },
+  {"tag": "thanks",
+    "patterns": ["Thanks", "Thank you", "That's helpful", "tq", "ty", "alright", "thanks for the service"],
+    "responses": ["Happy to help!", "Any time!", "My pleasure", "You're welcome!"],
+    "context_set": ""
+  },
+  {"tag": "age",
+    "patterns": ["how old", "how old are you", "what is your age", "age?"],
+    "responses": ["I'm 22 years old!"],
+    "context_set": ""
+  },
+  {"tag": "name",
+    "patterns": ["who are you", "what is your name", "what should i call you", "how can i call you"],
+    "responses": ["My name Jeff!", "I'm Jeff, how can I help you?"],
+    "context_set": ""
+  },
+  {"tag": "hours",
+    "patterns": ["What hours are you open?", "What are your hours?", "When are you open?" ],
+    "responses": ["We're open every day 9am-9pm", "Our hours are 9am-9pm every day"]
+  },
+  {"tag": "bikes",
+    "patterns": ["Which bikes do you have?", "What kinds of bikes are there?", "What do you rent?", "what bikes do you have?", "yes any bikes?"],
+    "responses": ["We rent various kind of bikes such as mountain bikes, road bikes and electric bikes!", "We have various bikes like mountain bikes, road bikes and electric bikes."],
+    "context_set": "askbikes"
+  },
+  {"tag": "payments",
+    "patterns": ["Do you take credit cards?", "Do you accept Mastercard?", "Are you cash only?", "what payment method", "can i pay with cards" ],
+    "responses": ["We accept VISA and mastercard", "We accept cashless payment", "We accept most major credit cards"]
+  },
+  {"tag": "opentoday",
+    "patterns": ["Are you open today?", "When do you open today?", "What are your hours today?"],
+    "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
+  },
+  {"tag": "rental",
+    "patterns": ["Can we rent a bike?", "I'd like to rent a bike", "How does this work?", "can i get a bike?", "i want a bike", "Trek please", "i want to rent"],
+    "responses": ["Are you looking to rent today or later this week?"],
+    "context_set": "rentalday"
+  },
+  {"tag": "today",
+    "patterns": ["rent today", "now", "today"],
+    "responses": ["For rentals today please call 1-800-888-888", "Same-day rentals please call 1-800-888-888"],
+    "context_filter": "rentalday"
+  },
+  {"tag": "later",
+    "patterns": ["later this week", "later", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "tomorrow"],
+    "responses": ["Please head to http://... for online rental"],
+    "context_filter": "rentalday"
+  }, 
+  {"tag": "do",
+    "patterns": ["what can you do", "you can do what", "what is your function", "what is your purpose", "why are you here"],
+    "responses": ["I'm here to service you!", "I'm here to help you to rent a bike."],
+    "context_set": ""
+  },
+  {"tag": "buy",
+    "patterns": ["do you sell things", "Do you sell bikes", "can i buy a bike", "can i keep the bike", "any services?", "i want to buy a bike", "how about scooters"],
+    "responses": ["We only have rental service for bikes.", "We do bike rental service only."]
+  },
+  {"tag": "recommendation",
+    "patterns": ["what bikes do you recommend", "any recommendation for what bikes to rent", "which bikes is good", "recommend me?", "suggest me a bike", "suggestion"],
+    "responses": ["For mountain bikes I recommend Trek Bikes, road bikes I recommend Specialized, electric bikes I recommend NAKTO."],
+    "context_filter": "askbikes"
+  },
+  {"tag": "gender",
+    "patterns": ["Are you male", "what is your gender", "are you female"],
+    "responses": ["I have no gender, I am a bot."]
+  },
+  {"tag": "place",
+    "patterns": ["Where are you from", "where do you live", "where you born"],
+    "responses": ["I'm from the Internet."]
+  },
+  {"tag": "mtbike",
+    "patterns": ["what mountain bikes do you have?", "any mountain bikes?", "other than Trek", "what about mountain bikes", "choices mountain bikes"],
+    "responses": ["We have Trek, Santa Cruz and Cannondale."],
+    "context_set": "askmtbikes",
+    "context_filter": "askbikes"
+  },
+  {"tag": "roadbike",
+    "patterns": ["what road bikes do you have?", "any road bikes?", "other than Specialized", "choices road bikes"],
+    "responses": ["We have Specialized, Colnago and BMC."],
+    "context_set": "askroadbikes",
+    "context_filter": "askbikes"
+  },
+  {"tag": "elcbike",
+    "patterns": ["What electric bikes do you have?", "any electric bikes?", "other than NAKTO", "What e bikes do you have?", "any e bikes?", "choices electric bikes", "choices e bikes"],
+    "responses": ["We have SwagCycle, NAKTO and Aceshin."],
+    "context_set": "askelcbikes",
+    "context_filter": "askbikes"
+  },
+  {"tag": "recmt",
+    "patterns": ["what would you recommend me for mountain bikes", "mountain bikes recommendation", "recommendation for mountain bikes", "recommend me mountain bikes"],
+    "responses": ["Mountain bikes I would recommend you Trek."],
+    "context_filter": "askmtbikes"
+  },
+  {"tag": "recrb",
+    "patterns": ["what would you recommend me for road bikes", "road bikes recommendation", "recommendation for road bikes", "recommend me road bikes"],
+    "responses": ["My recommendation for road bikes is Specialized."],
+    "context_filter": "askroadbikes"
+  },
+  {"tag": "receb",
+    "patterns": ["what would you recommend me for electric bikes", "electric bikes recommendation", "recommendation for electric bikes", "recommend me electric bikes", "what would you recommend me for e bikes", "e bikes recommendation", "recommendation for e bikes", "recommend me e bikes"],
+    "responses": ["I recommend you to rent NAKTO."],
+    "context_filter": "askelcbikes"
+  },
+  {"tag": "anothergreet",
+    "patterns": ["nice to meet you", "good to see you"],
+    "responses": ["Hi! What can I help you?", "Good to see you again!", "Nice to meet you too!"],
+    "context_set": ""
+  },
+  {"tag": "any",
+    "patterns": ["oh ok", "okay", "k", "oh i see", "ic", "ok"],
+    "responses": ["Anything I can help?"],
+    "context_set": "anything"
+  },
+  {"tag": "ans",
+    "patterns": ["yes", "yeah", "yep", "ye"],
+    "responses": ["What bikes you want to rent?"],
+    "context_filter": "anything"
+  },
+  {"tag": "anssec",
+    "patterns": ["no", "nope", "nop", "nah", "nothing"],
+    "responses": ["Sad to hear that."],
+    "context_filter": "anything"
+  },
+  {"tag": "discount",
+    "patterns": ["do you have any discount?", "any discount?", "discount please"],
+    "responses": ["We do have discount for students. Just bring your student identification card to claim the discount!"]
+  },
+  {"tag": "location",
+    "patterns": ["where is your store located at", "store location", "where is the store"],
+    "responses": ["Our current store location is at No. 170 Jalan 16 Taman Perindustrian Ehsan Jaya, Kepong, 52100 Kuala Lumpur"]
+  },
+  {"tag": "nearest",
+    "patterns": ["where is the nearest store.", "nearest location"],
+    "responses": ["It depends! :)"]
+  },
+  {"tag": "mtbikes_explanation",
+    "patterns": ["what is a mountain bike", "explain mountain bike", "what is mountain bike", "how about mountain bikes"],
+    "responses": ["A mountain bike is a bicycle designed for off-road cycling."]
+  },
+  {"tag": "roadbikes_explanation",
+    "patterns": ["what is road bike", "explain road bike", "what is a road bike", "how about road bikes"],
+    "responses": ["Road bicycle is a bicycle that built for traveling at speed on paved roads."]
+  },
+  {"tag": "ebike_explanation",
+    "patterns": ["what is an electric bike", "explain electric bike", "what is electric bike", "what is an e bike", "explain e bike", "what is e bike", "how about electric bikes"],
+    "responses": ["An electric bicycle also known as an e-bike is a bicycle with an integrated electric motor which can be used for propulsion."]
+  },
+  {"tag": "skycolor",
+    "patterns": ["what is the color of sky"],
+    "responses": ["The color of blue."]
+  },
+  {"tag": "rudewords",
+    "patterns": ["fuck you", "fk you", "piece of shit", "wtf", "son of a bitch"],
+    "responses": ["That wasn't very polite.", "Wow, that is a hurtful thing to say"]
+  },
+  {"tag": "meaningoflife",
+    "patterns": ["what is the meaning of life", "what is life"],
+    "responses": ["42!"]
+  },
+  {"tag": "vacancies",
+    "patterns": ["any job vacancies", "any jobs opening", "are you looking for new employees", "any vacancies?"],
+    "responses": ["Sorry, we do not have any job opening at the moment."]
+  },
+  {"tag": "interact1",
+    "patterns": ["i love you"],
+    "responses": ["You made my day!", "That's high praise coming from you!", "It feels good to be loved!"]
+  },
+  {"tag": "interact2",
+    "patterns": ["i like you"],
+    "responses": ["Thank you!", "Thanks, I like you too. I promise not to let this get to my head.", "Thanks, that just made my day!"]
+  },
+  {"tag": "interact3",
+    "patterns": ["i miss you"],
+    "responses": ["That's sweet. I always miss you when you're away.", "Until we chat again!"]
+  },
+  {"tag": "interact4",
+    "patterns": ["hahahaha", "lmao", "lol", "ahahaha", "hahaha"],
+    "responses": ["As long as you're laughing, I'm happy."]
+  },
+  {"tag": "interact5",
+    "patterns": ["tell me a joke"],
+    "responses": ["Your life.", "What do you call an indian in a Ferrari? Curry in a hurry.", "YOUUUU!"]
+  },
+  {"tag": "interact6",
+    "patterns": ["do you like math", "you like mathematics?"],
+    "responses": ["Of course I like meth. I mean math."]
+  },
+  {"tag": "interact7",
+    "patterns": ["what is 1 + 1", "what 2 * 2", "what is 3 * 3", "what is 4 / 4"],
+    "responses": ["69!"]
+  },
+  {"tag": "cost",
+    "patterns": ["how much does it cost", "cost to rent a bike", "price for renting a bike"],
+    "responses": ["RM15.00 for 1 day and RM80 for 1 week. Further info please visit our website at http://..."]
+  }
+]
+}
